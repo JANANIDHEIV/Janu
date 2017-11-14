@@ -35,7 +35,10 @@
         <property name="hbm2ddl.auto">create</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="org.main.Employee"/>
+        <mapping class="org.library.Book"/>
+         <mapping class="org.library.Publisher"/>
+		 <mapping class="org.library.Member"/>
+		  <mapping class="org.library.Date"/>
 
     </session-factory>
 
