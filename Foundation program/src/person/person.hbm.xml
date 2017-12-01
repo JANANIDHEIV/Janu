@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.person.Person" table="PERSON_DETAILS" discriminator-value="P">
+		<id name="id" type="int" column="BOOK_ID">
+			<generator class="increment" />
+		</id>
+		<discriminator column="DISCRIMINATOR" type="string" />
+		
+		<property name="name" column="PERSON_NAME" type="string" />
+		<property name="address" column="ADDRESS" type="string" />
+		<property name="dept" column="DEPARTMENT" type="string" />
+		<subclass name="com.person.Teacher" extends="Person" discriminator-value="T">
+			<property name="basicPay" column="BASIC" type="double" />
+			<property name="houseRentAllowance" column="HRA" type="double" />
+			<property name="dearnessAllowance" column="DA" type="double" />
+			<property name="providentFund" column="PF" type="double" />
+			<property name="travelAllowance" column="TA" type="double" />
+			<property name="netSalary" column="NET_SALARY" type="double" />
+		</subclass>
+		<subclass name="com.person.Student" extends="Person" discriminator-value="S">
+			<property name="creditsEarned" column="CREDITS" type="int" />
+			<property name="totalGrade" column="IN_STOCK" type="char" />
+		</subclass>
+	</class>
+</hibernate-mapping>
